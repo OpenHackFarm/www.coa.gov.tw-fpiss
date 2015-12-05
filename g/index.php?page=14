@@ -1,0 +1,250 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>農產品經營業者查詢專區</title>
+<link href="css/css01.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+	function show_table(id,img_id){
+		var element=document.getElementById(id);
+		var element_img=document.getElementById(img_id);
+		if(element.style.display=='none'){
+			element.style.display='table-row';
+			element_img.src="images/icon06.gif";
+		}
+		else{
+			element.style.display='none';
+			element_img.src="images/icon07.gif";
+		}
+	}
+	function show_tr(id){
+		var element=document.getElementById(id);
+		element.style.display='inline-table';
+	}
+	function hide_tr(id){
+		var element=document.getElementById(id);
+		element.style.display='none';
+	}
+</script>
+</head>
+
+<body>
+<div id="all-wrapper">
+	<div id="logo"><img src="images/space.gif" width="1003" height="110" border="0"  alt="*" title="*"/></div>
+  <div id="menu"><a href="index.php?category=g" class="menu-a_r menu-t-space" title="農糧">2158筆資料
+</a><a href="index.php?category=f" class="menu-b menu-t-space" title="漁業">563筆資料
+</a><a href="index.php?category=a" class="menu-c menu-t-space" title="畜牧">284筆資料
+</a><a href="index.php?category=m" class="menu-d menu-t-space" title="加工">104筆資料
+</a></div>
+<form name="search" method="post" action="index.php">
+<table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="34" height="45"><img src="images/icon01.gif" width="145" height="32"  alt=""/></td>
+    <td width="181" nowrap class="text01">所在縣市
+      <select name="city" id="city">
+        <option value="" selected>請選擇縣市</option>
+                <option value="A" >臺北市</option>
+                <option value="B" >臺中市</option>
+                <option value="C" >基隆市</option>
+                <option value="D" >臺南市</option>
+                <option value="E" >高雄市</option>
+                <option value="F" >新北市</option>
+                <option value="G" >宜蘭縣</option>
+                <option value="H" >桃園市</option>
+                <option value="I" >嘉義市</option>
+                <option value="J" >新竹縣</option>
+                <option value="K" >苗栗縣</option>
+                <option value="M" >南投縣</option>
+                <option value="N" >彰化縣</option>
+                <option value="O" >新竹市</option>
+                <option value="P" >雲林縣</option>
+                <option value="Q" >嘉義縣</option>
+                <option value="T" >屏東縣</option>
+                <option value="U" >花蓮縣</option>
+                <option value="V" >臺東縣</option>
+                <option value="W" >金門縣</option>
+                <option value="X" >澎湖縣</option>
+                <option value="Z" >連江縣</option>
+              </select></td>
+    <td width="181" nowrap class="text01">標章資訊
+      <select name="mark" id="mark">
+        <option value="" selected>請選擇標章</option>
+                <option value="cas" >CAS</option>
+                <option value="organic" >有機</option>
+                <option value="tap" >產銷履歷</option>
+                <option value="tea" >茶產地標章</option>
+              </select></td>
+    <td width="205" nowrap><span class="text01">關鍵字
+      <input name="keyword" type="text" class="box01" id="keyword" value="(請輸入關鍵字)" onfocus="javascript: if(this.value=='(請輸入關鍵字)') this.value='';" onblur="javascript: if(this.value=='') this.value='(請輸入關鍵字)';">
+         </span></td>
+    <td width="369"><input type="image" src="images/bu01.gif" alt="" width="38" height="22" class="space01" border="0" title="查詢" alt="查詢"/></td>
+  </tr>
+</table>
+<input type="hidden" name="category" value="g">
+<input type="hidden" name="is_search" value="Y">
+</form>
+<table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="35">&nbsp;</td>
+    <td width="865" height="25" class="text01">
+    </td>
+  </tr>
+</table>
+<br>
+<table width="950" border="0" align="center" cellpadding="5" cellspacing="1" bgcolor="#74CDF8">
+  <tr>
+    <td colspan="2" align="center" valign="middle" bgcolor="#0099FF" style="color: #FFF" width="222"><strong>經營業者</strong></td>
+    <td align="center" valign="middle" nowrap bgcolor="#0099FF" style="color: #FFF" width="70"><strong>聯絡人</strong></td>
+    <td align="center" valign="middle" bgcolor="#0099FF" style="color: #FFF" width="43" width="224"><strong>產品<br>
+      類別</strong></td>
+    <td align="center" valign="middle" bgcolor="#0099FF" style="color: #FFF" width="224"><strong>產品名稱</strong></td>
+    <td align="center" valign="middle" bgcolor="#0099FF" style="color: #FFF" width="55"><strong>所在<br>
+      縣市</strong></td>
+    <td align="center" valign="middle" bgcolor="#0099FF" style="color: #FFF" width="43"><strong>標章<br>
+      資訊</strong></td>
+    <td align="center" valign="middle" bgcolor="#0099FF" style="color: #FFF" width="104"><strong>電話</strong></td>
+    <td align="center" valign="middle" bgcolor="#0099FF" style="color: #FFF" width="180"><strong>EMAIL</strong></td>
+  </tr>
+    <tr class="text01">
+  	    <td colspan="2" align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center"><a href="http://taft.coa.gov.tw/ResumeProduct/OrgIntro.aspx?&OrgName=%E5%84%84%E6%9D%B1%E4%BC%81%E6%A5%AD%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8%28%E7%AB%B9%E5%A1%98%E5%B0%88%E6%A5%AD%E5%8D%80%29" style="text-decoration:none" target="_blank" title="億東企業股份有限公司(竹塘專業區)">億東企業股份有限公司(竹塘專業區)</a> </p></td>
+        <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">陳維升 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">農糧 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center" >水稻 </td>
+    <td align="center" valign="middle" nowrap bgcolor="#E3FFFF" style="color: #333"><p align="center">彰化縣 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">產銷履歷 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">04-8973116 &nbsp; </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333">b0017@rice.com.tw</td>
+  </tr>
+      <tr class="text01">
+  	    <td colspan="2" align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center"><a href="http://taft.coa.gov.tw/ResumeProduct/OrgIntro.aspx?&OrgName=%E5%84%84%E6%9D%B1%E4%BC%81%E6%A5%AD%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8123" style="text-decoration:none" target="_blank" title="億東企業股份有限公司123">億東企業股份有限公司123</a> </p></td>
+        <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">徐弘凌 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">農糧 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center" >水稻 </td>
+    <td align="center" valign="middle" nowrap bgcolor="#E3FFFF" style="color: #333"><p align="center">雲林縣 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">產銷履歷 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">05-5874533 &nbsp; </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333">b007d@rice.com.tw</td>
+  </tr>
+      <tr class="text01">
+  	    <td colspan="2" align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center"><a href="http://www.i-organic.org.tw/farm/GAAF0007/" style="text-decoration:none" target="_blank" title="優值農場">優值農場</a> </p></td>
+        <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">謝志明 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">農糧 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center"  onClick="show_table('lineorganicGAAF0007','imgorganicGAAF0007')">木瓜，包心白菜，玉米，甘...<img src="images/icon07.gif "alt="展開" title="展開" id="imgorganicGAAF0007"> </td>
+    <td align="center" valign="middle" nowrap bgcolor="#E3FFFF" style="color: #333"><p align="center">屏東縣 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">有機 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">0932-882315 &nbsp; </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"></td>
+  </tr>
+    <tr style="display:none" id="lineorganicGAAF0007">
+    <td colspan="9" valign="top" bgcolor="#FFFFF0" style="color: #333"><p class="text01">木瓜，包心白菜，玉米，甘藍，白菜，芋頭，油菜，芹菜，花胡瓜，花椰菜，青江菜，青花菜，青蔥，洋香瓜，韭菜，韭菜花，香瓜，茼萵，敏豆，甜椒，莧菜，番茄，萵苣，蕹菜</p></td>
+  </tr>
+      <tr class="text01">
+  	    <td colspan="2" align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center"><a href="http://www.i-organic.org.tw/farm/MOAF0348/" style="text-decoration:none" target="_blank" title="元埔園場萬興耕區">元埔園場萬興耕區</a> </p></td>
+        <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">台糖公司台中區處 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">農糧 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center" >水稻 </td>
+    <td align="center" valign="middle" nowrap bgcolor="#E3FFFF" style="color: #333"><p align="center">彰化縣 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">有機 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">04-8852111~365 &nbsp; </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"></td>
+  </tr>
+      <tr class="text01">
+  	    <td colspan="2" align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center"><a href="http://taft.coa.gov.tw/ResumeProduct/OrgIntro.aspx?&OrgName=%E5%85%83%E9%9A%86%E9%A4%8A%E8%8F%8C%E5%9C%92%E8%BE%B2%E5%A0%B4" style="text-decoration:none" target="_blank" title="元隆養菌園農場">元隆養菌園農場</a> </p></td>
+        <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">戴安治 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">農糧 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center"  onClick="show_table('linetap133764','imgtap133764')">木耳,香菇,金針菇,巴西蘑菇...<img src="images/icon07.gif "alt="展開" title="展開" id="imgtap133764"> </td>
+    <td align="center" valign="middle" nowrap bgcolor="#E3FFFF" style="color: #333"><p align="center">臺中市 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">產銷履歷 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">042-3391835 &nbsp; </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333">tyf0922@gmail.com</td>
+  </tr>
+    <tr style="display:none" id="linetap133764">
+    <td colspan="9" valign="top" bgcolor="#FFFFF0" style="color: #333"><p class="text01">木耳,香菇,金針菇,巴西蘑菇,鴻喜菇,杏鮑菇,側耳(白面蘑菇),銀耳,雪白菇,舞菇,滑菇</p></td>
+  </tr>
+      <tr class="text01">
+  	    <td colspan="2" align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center"><a href="http://www.i-organic.org.tw/farm/MOAF0665/" style="text-decoration:none" target="_blank" title="光陽果園">光陽果園</a> </p></td>
+        <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">廖永敬 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">農糧 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center"  onClick="show_table('lineorganicMOAF0665','imgorganicMOAF0665')">山藥，介壽果(腰果)，牛奶...<img src="images/icon07.gif "alt="展開" title="展開" id="imgorganicMOAF0665"> </td>
+    <td align="center" valign="middle" nowrap bgcolor="#E3FFFF" style="color: #333"><p align="center">嘉義縣 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">有機 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">05-2787867 &nbsp; </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"></td>
+  </tr>
+    <tr style="display:none" id="lineorganicMOAF0665">
+    <td colspan="9" valign="top" bgcolor="#FFFFF0" style="color: #333"><p class="text01">山藥，介壽果(腰果)，牛奶果，百香果，佛手柑，芒果，波羅蜜，金桔，柑桔，柚子，香蕉，神祕果，荔枝，蛋黃果，無花果，番荔枝，楊桃，嘉寶果，榴槤密，鳳梨，鳳梨釋迦，諾麗果，龍眼，薑，霹靂果，鱷梨（酪梨、油梨）</p></td>
+  </tr>
+      <tr class="text01">
+  	    <td colspan="2" align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center"><a href="http://taft.coa.gov.tw/ResumeProduct/OrgIntro.aspx?&OrgName=%E5%87%B1%E5%BE%8B%E8%BE%B2%E5%A0%B4" style="text-decoration:none" target="_blank" title="凱律農場">凱律農場</a> </p></td>
+        <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">周凱律 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">農糧 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center" >茶葉 </td>
+    <td align="center" valign="middle" nowrap bgcolor="#E3FFFF" style="color: #333"><p align="center">南投縣 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">產銷履歷 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">049-2920492 &nbsp; </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333">KL_0106@hotmail.com</td>
+  </tr>
+      <tr class="text01">
+  	    <td colspan="2" align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center"><a href="http://www.i-organic.org.tw/farm/NCKF0139/" style="text-decoration:none" target="_blank" title="凱楓企業有限公司">凱楓企業有限公司</a> </p></td>
+        <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">謝凌宜 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">農糧 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center"  onClick="show_table('lineorganicNCKF0139','imgorganicNCKF0139')">柳丁，紅藜，香蕉，桂花，...<img src="images/icon07.gif "alt="展開" title="展開" id="imgorganicNCKF0139"> </td>
+    <td align="center" valign="middle" nowrap bgcolor="#E3FFFF" style="color: #333"><p align="center">南投縣 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">有機 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">049-225-9951 &nbsp; </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333">kf.in@msa.hinet.net</td>
+  </tr>
+    <tr style="display:none" id="lineorganicNCKF0139">
+    <td colspan="9" valign="top" bgcolor="#FFFFF0" style="color: #333"><p class="text01">柳丁，紅藜，香蕉，桂花，草莓，梅，諾麗果，龍眼</p></td>
+  </tr>
+      <tr class="text01">
+  	    <td colspan="2" align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center"><a href="http://www.i-organic.org.tw/farm/NCHF0094/" style="text-decoration:none" target="_blank" title="出淳綺">出淳綺</a> </p></td>
+        <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">出淳綺 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">農糧 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center"  onClick="show_table('lineorganicNCHF0094','imgorganicNCHF0094')">牛樟芝（牛樟菇、樟菇、紅...<img src="images/icon07.gif "alt="展開" title="展開" id="imgorganicNCHF0094"> </td>
+    <td align="center" valign="middle" nowrap bgcolor="#E3FFFF" style="color: #333"><p align="center">臺中市 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">有機 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">04-22801211 &nbsp; </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333">m9215006@yahoo.com.tw</td>
+  </tr>
+    <tr style="display:none" id="lineorganicNCHF0094">
+    <td colspan="9" valign="top" bgcolor="#FFFFF0" style="color: #333"><p class="text01">牛樟芝（牛樟菇、樟菇、紅樟芝），黃金蟲草（蛹蟲草）子實體</p></td>
+  </tr>
+      <tr class="text01">
+  	    <td colspan="2" align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center"><a href="http://www.i-organic.org.tw/farm/FSIF0123/" style="text-decoration:none" target="_blank" title="利擔有機農場">利擔有機農場</a> </p></td>
+        <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">羅淑美 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">農糧 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center" >甘藍，菠菜，萵苣，蘿蔔 </td>
+    <td align="center" valign="middle" nowrap bgcolor="#E3FFFF" style="color: #333"><p align="center">新竹縣 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">有機 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">03-5847765 &nbsp; </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"></td>
+  </tr>
+    </table>
+<form method="post" name="form2">
+<table width="950" height="45" border="0" align="center" cellpadding="5" cellspacing="0">
+  <tr>
+    <td width="450" align="right" valign="middle"><span class="text01">共2158筆資料，第14/216頁，快速跳
+      <input name="page" type="text" class="box02" id="page" onBlur="javascript:document.form2.submit();">頁</span>
+      </td>
+      <td align="left" valign="middle" width="450">
+       <img src="images/icon04.gif" width="6" height="8"  alt="" title=""/>
+        <a href="index.php?page=13" class="a" title="上一頁">上一頁</a>        <img src="images/icon05.gif" width="11" height="8"  alt="" title=""/>
+        <a href="index.php?page=4" class="a" title="上10頁">上10頁</a>     <span class="text01"><a href="index.php?page=10" title="第10頁" >10</a>  <a href="index.php?page=11" title="第11頁" >11</a>  <a href="index.php?page=12" title="第12頁" >12</a>  <a href="index.php?page=13" title="第13頁" >13</a>  14 <a href="index.php?page=15" title="第15頁" >15</a>  <a href="index.php?page=16" title="第16頁" >16</a>  <a href="index.php?page=17" title="第17頁" >17</a>  <a href="index.php?page=18" title="第18頁" >18</a>  <a href="index.php?page=19" title="第19頁" >19</a>  
+        <img src="images/icon02.gif" width="6" height="8"  alt="" title=""/>
+        <a href="index.php?page=15" class="a" title="下一頁">下一頁</a>        <img src="images/icon03.gif" width="11" height="8"  alt="" title=""/>
+        <a href="index.php?page=24" class="a" title="下10頁">下10頁</a>      </tr>
+    </table></td>
+    </tr>
+</table>
+<table width="950" border="0" align="center" cellpadding="10" cellspacing="0">
+  <tr>
+    <td align="center" valign="middle"><span class="text01">行政院農業委員會版權所有© 2015 COA All Rights Reserved. 最佳瀏覽狀態為 IE8.0 以上‧Firefox‧Chrome‧1024x768 以上解析度最佳<br>
+      10014 臺北市中正區南海路 37 號‧電話：(02)2381-2991‧服務時間：AM8:30~PM5:30</span><br></td>
+  </tr>
+</table>
+<input type="hidden" name="category" value="g">
+</form>
+</div>
+</body>
+</html>

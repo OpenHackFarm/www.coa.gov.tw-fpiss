@@ -1,0 +1,240 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>農產品經營業者查詢專區</title>
+<link href="css/css01.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+	function show_table(id,img_id){
+		var element=document.getElementById(id);
+		var element_img=document.getElementById(img_id);
+		if(element.style.display=='none'){
+			element.style.display='table-row';
+			element_img.src="images/icon06.gif";
+		}
+		else{
+			element.style.display='none';
+			element_img.src="images/icon07.gif";
+		}
+	}
+	function show_tr(id){
+		var element=document.getElementById(id);
+		element.style.display='inline-table';
+	}
+	function hide_tr(id){
+		var element=document.getElementById(id);
+		element.style.display='none';
+	}
+</script>
+</head>
+
+<body>
+<div id="all-wrapper">
+	<div id="logo"><img src="images/space.gif" width="1003" height="110" border="0"  alt="*" title="*"/></div>
+  <div id="menu"><a href="index.php?category=g" class="menu-a menu-t-space" title="農糧">2157筆資料
+</a><a href="index.php?category=f" class="menu-b menu-t-space" title="漁業">562筆資料
+</a><a href="index.php?category=a" class="menu-c_r menu-t-space" title="畜牧">287筆資料
+</a><a href="index.php?category=m" class="menu-d menu-t-space" title="加工">104筆資料
+</a></div>
+<form name="search" method="post" action="index.php">
+<table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="34" height="45"><img src="images/icon01.gif" width="145" height="32"  alt=""/></td>
+    <td width="181" nowrap class="text01">所在縣市
+      <select name="city" id="city">
+        <option value="" selected>請選擇縣市</option>
+                <option value="A" >臺北市</option>
+                <option value="B" >臺中市</option>
+                <option value="C" >基隆市</option>
+                <option value="D" >臺南市</option>
+                <option value="E" >高雄市</option>
+                <option value="F" >新北市</option>
+                <option value="G" >宜蘭縣</option>
+                <option value="H" >桃園市</option>
+                <option value="I" >嘉義市</option>
+                <option value="J" >新竹縣</option>
+                <option value="K" >苗栗縣</option>
+                <option value="M" >南投縣</option>
+                <option value="N" >彰化縣</option>
+                <option value="O" >新竹市</option>
+                <option value="P" >雲林縣</option>
+                <option value="Q" >嘉義縣</option>
+                <option value="T" >屏東縣</option>
+                <option value="U" >花蓮縣</option>
+                <option value="V" >臺東縣</option>
+                <option value="W" >金門縣</option>
+                <option value="X" >澎湖縣</option>
+                <option value="Z" >連江縣</option>
+              </select></td>
+    <td width="181" nowrap class="text01">標章資訊
+      <select name="mark" id="mark">
+        <option value="" selected>請選擇標章</option>
+                <option value="cas" >CAS</option>
+                <option value="organic" >有機</option>
+                <option value="tap" >產銷履歷</option>
+                <option value="tea" >茶產地標章</option>
+              </select></td>
+    <td width="205" nowrap><span class="text01">關鍵字
+      <input name="keyword" type="text" class="box01" id="keyword" value="(請輸入關鍵字)" onfocus="javascript: if(this.value=='(請輸入關鍵字)') this.value='';" onblur="javascript: if(this.value=='') this.value='(請輸入關鍵字)';">
+         </span></td>
+    <td width="369"><input type="image" src="images/bu01.gif" alt="" width="38" height="22" class="space01" border="0" title="查詢" alt="查詢"/></td>
+  </tr>
+</table>
+<input type="hidden" name="category" value="a">
+<input type="hidden" name="is_search" value="Y">
+</form>
+<table width="900" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="35">&nbsp;</td>
+    <td width="865" height="25" class="text01">
+    </td>
+  </tr>
+</table>
+<br>
+<table width="950" border="0" align="center" cellpadding="5" cellspacing="1" bgcolor="#74CDF8">
+  <tr>
+    <td colspan="2" align="center" valign="middle" bgcolor="#0099FF" style="color: #FFF" width="222"><strong>經營業者</strong></td>
+    <td align="center" valign="middle" nowrap bgcolor="#0099FF" style="color: #FFF" width="70"><strong>聯絡人</strong></td>
+    <td align="center" valign="middle" bgcolor="#0099FF" style="color: #FFF" width="43" width="224"><strong>產品<br>
+      類別</strong></td>
+    <td align="center" valign="middle" bgcolor="#0099FF" style="color: #FFF" width="224"><strong>產品名稱</strong></td>
+    <td align="center" valign="middle" bgcolor="#0099FF" style="color: #FFF" width="55"><strong>所在<br>
+      縣市</strong></td>
+    <td align="center" valign="middle" bgcolor="#0099FF" style="color: #FFF" width="43"><strong>標章<br>
+      資訊</strong></td>
+    <td align="center" valign="middle" bgcolor="#0099FF" style="color: #FFF" width="104"><strong>電話</strong></td>
+    <td align="center" valign="middle" bgcolor="#0099FF" style="color: #FFF" width="180"><strong>EMAIL</strong></td>
+  </tr>
+    <tr class="text01">
+  	    <td colspan="2" align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center"><a href="http://taft.coa.gov.tw/ResumeProduct/OrgIntro.aspx?&OrgName=%E5%8F%B0%E7%81%A3%E7%B3%96%E6%A5%AD%E5%85%AC%E5%8F%B8%E7%95%9C%E6%AE%96%E4%BA%8B%E6%A5%AD%E9%83%A8%E6%9D%B1%E6%B5%B7%E8%B1%90%E7%95%9C%E6%AE%96%E5%A0%B4" style="text-decoration:none" target="_blank" title="台灣糖業公司畜殖事業部東海豐畜殖場">台灣糖業公司畜殖事業部東海豐畜殖場</a> </p></td>
+        <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">陳必顯 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">畜牧 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center" >一般肉豬 </td>
+    <td align="center" valign="middle" nowrap bgcolor="#E3FFFF" style="color: #333"><p align="center">屏東縣 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">產銷履歷 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">08-7620745 &nbsp; </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333">hr7217@taisugar.com.tw</td>
+  </tr>
+      <tr class="text01">
+  	    <td colspan="2" align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center"><a href="http://taft.coa.gov.tw/ResumeProduct/OrgIntro.aspx?&OrgName=%E5%8F%B0%E7%81%A3%E7%B3%96%E6%A5%AD%E5%85%AC%E5%8F%B8%E7%95%9C%E6%AE%96%E4%BA%8B%E6%A5%AD%E9%83%A8%E8%90%AC%E8%88%88%E7%95%9C%E6%AE%96%E5%A0%B4" style="text-decoration:none" target="_blank" title="台灣糖業公司畜殖事業部萬興畜殖場">台灣糖業公司畜殖事業部萬興畜殖場</a> </p></td>
+        <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">黃明春 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">畜牧 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center" >一般肉豬 </td>
+    <td align="center" valign="middle" nowrap bgcolor="#E3FFFF" style="color: #333"><p align="center">彰化縣 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">產銷履歷 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">04-8682311 &nbsp; </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333">hr1441@taisugar.com.tw</td>
+  </tr>
+      <tr class="text01">
+  	    <td colspan="2" align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center"><a href="http://taft.coa.gov.tw/ResumeProduct/OrgIntro.aspx?&OrgName=%E5%8F%B0%E7%81%A3%E7%B3%96%E6%A5%AD%E7%95%9C%E6%AE%96%E4%BA%8B%E6%A5%AD%E9%83%A8%E9%B9%BF%E8%8D%89%E7%95%9C%E6%AE%96%E5%A0%B4" style="text-decoration:none" target="_blank" title="台灣糖業畜殖事業部鹿草畜殖場">台灣糖業畜殖事業部鹿草畜殖場</a> </p></td>
+        <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">鄭炎星 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">畜牧 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center" >一般肉豬 </td>
+    <td align="center" valign="middle" nowrap bgcolor="#E3FFFF" style="color: #333"><p align="center">嘉義縣 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">產銷履歷 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">05-3750205 &nbsp; </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333">hr4416@taisugar.com.tw</td>
+  </tr>
+      <tr class="text01">
+  	    <td colspan="2" align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center"><a href="http://www.cas.org.tw/content/test_and_verify/b5afpiss.asp?companyname=%A5x%C6W%BF%7D%B7%7E%AA%D1%A5%F7%A6%B3%AD%AD%A4%BD%A5q%AFb%B4%DE%A8%C6%B7%7E%B3%A1" style="text-decoration:none" target="_blank" title="台灣糖業股份有限公司畜殖事業部">台灣糖業股份有限公司畜殖事業部</a> </p></td>
+        <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">林世榮 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">畜牧 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center"  onClick="show_table('linecas0147','imgcas0147')">冷凍豬肉,台糖安心豚原味香...<img src="images/icon07.gif "alt="展開" title="展開" id="imgcas0147"> </td>
+    <td align="center" valign="middle" nowrap bgcolor="#E3FFFF" style="color: #333"><p align="center">臺南市 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">CAS </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">06-6225509 &nbsp; </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"></td>
+  </tr>
+    <tr style="display:none" id="linecas0147">
+    <td colspan="9" valign="top" bgcolor="#FFFFF0" style="color: #333"><p class="text01">冷凍豬肉,台糖安心豚原味香腸,海苔芝麻肉酥,台糖安心豚營養肉酥,肉酥,貢丸,貢丸（含香菇）,台糖安心豚蒜味香腸,台糖營養香腸,台糖安心豚鈣維康肉酥,台糖安心豚葵花油純肉酥,台糖安心豚薑黃肉酥,安心豚紅麴肉酥,台糖紅麴香腸,台糖安心豚黑胡椒香腸,台糖安心豚孜然香草香腸,台糖安心豚活力丸家貢丸,得意的一天健康肉酥,得意的一天全家健康肉酥,得意的一天芝麻海苔肉酥,得意的一天寶寶肉酥香蔬配方</p></td>
+  </tr>
+      <tr class="text01">
+  	    <td colspan="2" align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center"><a href="http://taft.coa.gov.tw/ResumeProduct/OrgIntro.aspx?&OrgName=%E5%8F%B0%E7%81%A3%E7%B3%96%E6%A5%AD%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8%E7%95%9C%E6%AE%96%E4%BA%8B%E6%A5%AD%E9%83%A8" style="text-decoration:none" target="_blank" title="台灣糖業股份有限公司畜殖事業部">台灣糖業股份有限公司畜殖事業部</a> </p></td>
+        <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">蕭正茂 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">畜牧 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center" >一般肉豬 </td>
+    <td align="center" valign="middle" nowrap bgcolor="#E3FFFF" style="color: #333"><p align="center">臺南市 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">產銷履歷 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">06-6223233-548 &nbsp; </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333">a03127@taisugar.com.tw</td>
+  </tr>
+      <tr class="text01">
+  	    <td colspan="2" align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center"><a href="http://taft.coa.gov.tw/ResumeProduct/OrgIntro.aspx?&OrgName=%E5%8F%B0%E7%81%A3%E7%B3%96%E6%A5%AD%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8%E7%95%9C%E6%AE%96%E4%BA%8B%E6%A5%AD%E9%83%A8-%E5%A4%96%E5%9F%94%E7%95%9C%E6%AE%96%E5%A0%B4" style="text-decoration:none" target="_blank" title="台灣糖業股份有限公司畜殖事業部-外埔畜殖場">台灣糖業股份有限公司畜殖事業部-外埔畜殖場</a> </p></td>
+        <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">賴春明 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">畜牧 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center" >一般肉豬 </td>
+    <td align="center" valign="middle" nowrap bgcolor="#E3FFFF" style="color: #333"><p align="center">臺中市 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">產銷履歷 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">04-25570185 &nbsp; </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333">hr1215@taisugar.com.tw</td>
+  </tr>
+      <tr class="text01">
+  	    <td colspan="2" align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center"><a href="http://taft.coa.gov.tw/ResumeProduct/OrgIntro.aspx?&OrgName=%E5%8F%B0%E7%81%A3%E7%B3%96%E6%A5%AD%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8%E7%95%9C%E6%AE%96%E4%BA%8B%E6%A5%AD%E9%83%A8%E5%A4%96%E5%9F%94%E6%9C%88%E7%9C%89%28%E4%BA%8C%29%E7%95%9C%E6%AE%96%E5%A0%B4" style="text-decoration:none" target="_blank" title="台灣糖業股份有限公司畜殖事業部外埔月眉(二)畜殖場">台灣糖業股份有限公司畜殖事業部外埔月眉(二)畜殖場</a> </p></td>
+        <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">李宗能 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">畜牧 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center" >一般肉豬 </td>
+    <td align="center" valign="middle" nowrap bgcolor="#E3FFFF" style="color: #333"><p align="center">臺中市 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">產銷履歷 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">(04)25578072 &nbsp; </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333">hr1213@taisugar.com.tw</td>
+  </tr>
+      <tr class="text01">
+  	    <td colspan="2" align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center"><a href="http://www.cas.org.tw/content/test_and_verify/b5afpiss.asp?companyname=%A5x%C6W%B9A%AFb%B2%A3%A4u%B7%7E%AA%D1%A5%F7%A6%B3%AD%AD%A4%BD%A5q" style="text-decoration:none" target="_blank" title="台灣農畜產工業股份有限公司">台灣農畜產工業股份有限公司</a> </p></td>
+        <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">陳聖德 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">畜牧 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center"  onClick="show_table('linecas0101','imgcas0101')">黑豬炭燒前腿,台畜蓬萊火腿...<img src="images/icon07.gif "alt="展開" title="展開" id="imgcas0101"> </td>
+    <td align="center" valign="middle" nowrap bgcolor="#E3FFFF" style="color: #333"><p align="center">屏東縣 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">CAS </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">08-7520525 &nbsp; </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"></td>
+  </tr>
+    <tr style="display:none" id="linecas0101">
+    <td colspan="9" valign="top" bgcolor="#FFFFF0" style="color: #333"><p class="text01">黑豬炭燒前腿,台畜蓬萊火腿,義大利蕃茄香腸,義大利煙燻香腸,黑豬尾瀨,黑豬牧風,德國黑森林優質火腿,燻烤前腿,帶骨德式香腸,萬巒豬腳,冷藏豬肉,冷凍豬肉,冷凍豬肉,培根,台式原味香腸,台式蒜味香腸,熟肉,冷藏豬肉,冷凍豬肉,台畜香腸,台畜羊腸香腸,台畜特製香腸,台畜蒜味香腸,台畜野戰香腸,台畜維也納香腸,台畜法蘭克香腸,台畜法蘭克福香腸,台畜燻里肌肉,台畜燻腿肉,台畜醬肘子,台畜福壽火腿,台畜胡椒里肌肉,台畜洋式赤肉火腿,台畜百壽火腿,台畜甲霸大熱狗,台畜親蜜腸,台畜三層煙肉,台畜黑胡椒腿肉,台畜蹄膀,黑胡椒香腸,本格燒,台畜肩胛煙肉,台畜維納斯紅椒腿肉,台畜培根低脂（重組肉）,美式厚切培根,台畜三明治火腿,背肌火腿,台畜原味肉酥,精選三明治火腿,台畜海苔肉酥,黑豬德式火鍋脆腸,台畜德式香腸</p></td>
+  </tr>
+      <tr class="text01">
+  	    <td colspan="2" align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center"><a href="http://taft.coa.gov.tw/ResumeProduct/OrgIntro.aspx?&OrgName=%E5%8F%B0%E7%81%A3%E8%BE%B2%E7%95%9C%E7%94%A2%E5%B7%A5%E6%A5%AD%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8" style="text-decoration:none" target="_blank" title="台灣農畜產工業股份有限公司">台灣農畜產工業股份有限公司</a> </p></td>
+        <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">張裕屏 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">畜牧 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center" >一般肉豬 </td>
+    <td align="center" valign="middle" nowrap bgcolor="#E3FFFF" style="color: #333"><p align="center">屏東縣 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">產銷履歷 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">08-7520525 &nbsp; </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333">tsunhou@tham.com.tw</td>
+  </tr>
+      <tr class="text01">
+  	    <td colspan="2" align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center"><a href="http://taft.coa.gov.tw/ResumeProduct/OrgIntro.aspx?&OrgName=%E5%8F%B0%E7%B3%96%E5%85%AC%E5%8F%B8%E5%B2%B8%E5%85%A7%E7%95%9C%E6%AE%96%E5%A0%B4" style="text-decoration:none" target="_blank" title="台糖公司岸內畜殖場">台糖公司岸內畜殖場</a> </p></td>
+        <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">沈伯壎 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">畜牧 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center" >一般肉豬 </td>
+    <td align="center" valign="middle" nowrap bgcolor="#E3FFFF" style="color: #333"><p align="center">嘉義縣 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">產銷履歷 </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333"><p align="center">05-342-1141 &nbsp; </p></td>
+    <td align="center" valign="middle" bgcolor="#E3FFFF" style="color: #333">hr4414@tasugar.com.tw</td>
+  </tr>
+    </table>
+<form method="post" name="form2">
+<table width="950" height="45" border="0" align="center" cellpadding="5" cellspacing="0">
+  <tr>
+    <td width="450" align="right" valign="middle"><span class="text01">共287筆資料，第6/29頁，快速跳
+      <input name="page" type="text" class="box02" id="page" onBlur="javascript:document.form2.submit();">頁</span>
+      </td>
+      <td align="left" valign="middle" width="450">
+       <img src="images/icon04.gif" width="6" height="8"  alt="" title=""/>
+        <a href="index.php?page=5&category=a" class="a" title="上一頁">上一頁</a>             <span class="text01"><a href="index.php?page=2&category=a" title="第2頁" >2</a>  <a href="index.php?page=3&category=a" title="第3頁" >3</a>  <a href="index.php?page=4&category=a" title="第4頁" >4</a>  <a href="index.php?page=5&category=a" title="第5頁" >5</a>  6 <a href="index.php?page=7&category=a" title="第7頁" >7</a>  <a href="index.php?page=8&category=a" title="第8頁" >8</a>  <a href="index.php?page=9&category=a" title="第9頁" >9</a>  <a href="index.php?page=10&category=a" title="第10頁" >10</a>  <a href="index.php?page=11&category=a" title="第11頁" >11</a>  
+        <img src="images/icon02.gif" width="6" height="8"  alt="" title=""/>
+        <a href="index.php?page=7&category=a" class="a" title="下一頁">下一頁</a>        <img src="images/icon03.gif" width="11" height="8"  alt="" title=""/>
+        <a href="index.php?page=16&category=a" class="a" title="下10頁">下10頁</a>      </tr>
+    </table></td>
+    </tr>
+</table>
+<table width="950" border="0" align="center" cellpadding="10" cellspacing="0">
+  <tr>
+    <td align="center" valign="middle"><span class="text01">行政院農業委員會版權所有© 2015 COA All Rights Reserved. 最佳瀏覽狀態為 IE8.0 以上‧Firefox‧Chrome‧1024x768 以上解析度最佳<br>
+      10014 臺北市中正區南海路 37 號‧電話：(02)2381-2991‧服務時間：AM8:30~PM5:30</span><br></td>
+  </tr>
+</table>
+<input type="hidden" name="category" value="a">
+</form>
+</div>
+</body>
+</html>
